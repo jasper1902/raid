@@ -28,8 +28,12 @@ function App() {
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("items")!);
-    if (items && items.items.length > 0) {
-      dispatch(setItem({ items: items.items, total: items.total }));
+    try {
+      if (items && items.items.length > 0) {
+        dispatch(setItem({ items: items.items, total: items.total }));
+      }
+    } catch (error) {
+      localStorage.setItem("items", JSON.stringify(itemReducer))
     }
   }, []);
 

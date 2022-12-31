@@ -126,7 +126,12 @@ const itemSlice = createSlice({
     },
 
     setItem: (state, action) => {
-      return { items: action.payload.items, total: action.payload.total };
+      const newState = {
+        items: action.payload.items,
+        total: action.payload.total,
+      };
+      localStorage.setItem("items", JSON.stringify(newState));
+      return newState;
     },
   },
 });
