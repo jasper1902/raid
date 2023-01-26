@@ -61,7 +61,7 @@ const itemSlice = createSlice({
         });
         const newTotal = { use: use, receive: receive };
         localStorage.setItem(
-          "items",
+          "items1",
           JSON.stringify({ items: newState, total: newTotal })
         );
         draft.items = newState;
@@ -95,7 +95,7 @@ const itemSlice = createSlice({
         });
         const newTotal = { use: use, receive: receive };
         localStorage.setItem(
-          "items",
+          "items1",
           JSON.stringify({ items: newArray, total: newTotal })
         );
         draft.items = newArray;
@@ -105,7 +105,12 @@ const itemSlice = createSlice({
 
     setLeftHandler: (state: ItemType, action) => {
       const newArray = state.items.map((item) => {
-        const left = ["Sulfur", "Explosives", "Gun Powder"].includes(item.title)
+        const left = [
+          "Sulfur",
+          "Explosives",
+          "Gun Powder",
+          "Sulfur Ore",
+        ].includes(item.title)
           ? 0
           : item.left + item.receive;
         return {
@@ -119,7 +124,7 @@ const itemSlice = createSlice({
         };
       });
       localStorage.setItem(
-        "items",
+        "items1",
         JSON.stringify({ items: newArray, total: { use: 0, receive: 0 } })
       );
       return { total: { use: 0, receive: 0 }, items: newArray };
@@ -130,7 +135,7 @@ const itemSlice = createSlice({
         items: action.payload.items,
         total: action.payload.total,
       };
-      localStorage.setItem("items", JSON.stringify(newState));
+      localStorage.setItem("items1", JSON.stringify(newState));
       return newState;
     },
   },

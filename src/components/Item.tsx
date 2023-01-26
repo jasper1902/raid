@@ -28,7 +28,7 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
           x
         </p>
         <input
-          className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-3 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="number"
           value={itemReducer.items[index].available}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -44,7 +44,7 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
       </div>
 
       <input
-        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-3 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="number"
         value={itemReducer.items[index].left}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -68,6 +68,7 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
       >
         {itemReducer.items[index].title}
       </div>
+
       <div
         className="cursor-move"
         onDragStart={(e) => (dragItem.current = index)}
@@ -79,14 +80,14 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         <img
           width="75px"
           height="75px"
-          className="lg:max-w-[75px] sm:max-w-[50px] mx-2 col-span-auto"
+          className="lg:max-w-[69px] sm:max-w-[50px] mx-2 col-span-auto"
           src={itemReducer.items[index].pic}
           alt={itemReducer.items[index].title}
         />
       </div>
 
       <input
-        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-3 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="number"
         value={itemReducer.items[index].use}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -101,7 +102,7 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
       />
 
       <input
-        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-3 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="number"
         value={itemReducer.items[index].receive}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

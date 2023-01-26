@@ -27,20 +27,20 @@ function App() {
   };
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("items")!);
+    const items = JSON.parse(localStorage.getItem("items1")!);
     try {
       if (items && items.items.length > 0) {
         dispatch(setItem({ items: items.items, total: items.total }));
       }
     } catch (error) {
-      localStorage.setItem("items", JSON.stringify(itemReducer))
+      localStorage.setItem("items1", JSON.stringify(itemReducer))
     }
   }, []);
 
   return (
     <>
-      <div className="bg-teal-500">
-        <div className="container mx-auto bg-teal-500">
+      <div className="dark:bg-gray-800 bg-sky-500">
+        <div className="container mx-auto dark:bg-gray-800 bg-sky-500 ">
           <Nav />
         </div>
       </div>

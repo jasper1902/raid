@@ -7,6 +7,8 @@ import c4 from "../../assets/rust/explosive.timed.webp";
 import explosives from "../../assets/rust/explosives.webp";
 import beancan from "../../assets/rust/grenade.beancan.webp";
 import gunpowder from "../../assets/rust/gunpowder.webp";
+import sulfurOre from "../../assets/rust/sulfur.ore.webp";
+import incendiaryRocket from "../../assets/rust/incendiary.rocket.webp";
 
 export const data = {
   items: [
@@ -40,18 +42,27 @@ export const data = {
     {
       use: 0,
       receive: 0,
-      title: "Beancan Grenade",
-      pic: beancan,
-      multiplier: 60,
+      title: "Sulfur",
+      pic: sulfur,
+      multiplier: 0.5,
       available: 0,
       left: 0,
     },
     {
       use: 0,
       receive: 0,
-      title: "Sulfur",
-      pic: sulfur,
+      title: "Sulfur Ore",
+      pic: sulfurOre,
       multiplier: 0.5,
+      available: 0,
+      left: 0,
+    },
+    {
+      use: 0,
+      receive: 0,
+      title: "Beancan Grenade",
+      pic: beancan,
+      multiplier: 60,
       available: 0,
       left: 0,
     },
@@ -91,6 +102,16 @@ export const data = {
       available: 0,
       left: 0,
     },
+    {
+      use: 0,
+      receive: 0,
+      title: "Incendiary Rocket",
+      pic: incendiaryRocket,
+      multiplier: 305,
+      available: 0,
+      left: 0,
+    },
+    
   ],
   total: {
     use: 0,
