@@ -20,6 +20,7 @@ export const data = {
       multiplier: 700,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -29,6 +30,7 @@ export const data = {
       multiplier: 1100,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -38,6 +40,7 @@ export const data = {
       multiplier: 12.5,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -47,6 +50,7 @@ export const data = {
       multiplier: 0.5,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -56,6 +60,7 @@ export const data = {
       multiplier: 0.5,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -65,6 +70,7 @@ export const data = {
       multiplier: 60,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -74,6 +80,7 @@ export const data = {
       multiplier: 1,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -83,6 +90,7 @@ export const data = {
       multiplier: 240,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -92,6 +100,7 @@ export const data = {
       multiplier: 100,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -101,6 +110,7 @@ export const data = {
       multiplier: 55,
       available: 0,
       left: 0,
+      dropdown: true,
     },
     {
       use: 0,
@@ -110,8 +120,8 @@ export const data = {
       multiplier: 305,
       available: 0,
       left: 0,
+      dropdown: true,
     },
-    
   ],
   total: {
     use: 0,

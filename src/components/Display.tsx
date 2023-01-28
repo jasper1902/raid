@@ -26,7 +26,7 @@ const Display = (props: Props) => {
                 : value == 0
                 ? "bg-yellow-500 hover:bg-yellow-700"
                 : "bg-red-500 hover:bg-red-700"
-            } p-3 rounded-xl transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold`}
+            } p-2.5 rounded-xl transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold`}
           >
             {value > 0
               ? `คุ้ม ${value.toLocaleString()}`
@@ -42,7 +42,7 @@ const Display = (props: Props) => {
         <div className="flex items-center flex-col">
           <button
             onClick={() => dispatch(setLeftHandler({}))}
-            className={`bg-blue-500 hover:bg-blue-700 p-3 rounded-xl transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold`}
+            className={`bg-blue-500 hover:bg-blue-700 p-2.5 rounded-xl transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold`}
           >
             เซ็ตจำนวนที่เหลือ
           </button>

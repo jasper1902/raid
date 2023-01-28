@@ -19,32 +19,24 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
   const itemReducer = useSelector(itemSelector);
 
   return (
-    <div className="grid grid-cols-6 items-center">
-      <div className="flex items-center">
-        <p
-          onClick={() => dispatch(RemoveData({ index: index }))}
-          className="cursor-pointer"
-        >
-          x
-        </p>
-        <input
-          className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="number"
-          value={itemReducer.items[index].available}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            dispatch(
-              updateState({
-                index: index,
-                property: "available",
-                value: parseInt(e.target.value),
-              })
-            )
-          }
-        />
-      </div>
+    <div className="grid grid-cols-12 items-center">
+      <input
+        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        type="number"
+        value={itemReducer.items[index].available}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          dispatch(
+            updateState({
+              index: index,
+              property: "available",
+              value: parseInt(e.target.value),
+            })
+          )
+        }
+      />
 
       <input
-        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="number"
         value={itemReducer.items[index].left}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -64,13 +56,13 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         onDragEnd={handleSort}
         onDragOver={(e) => e.preventDefault()}
         draggable
-        className="sm:text-xs lg:text-lg block text-gray-500 font-bold col-start-auto cursor-move"
+        className="sm:text-xs lg:text-lg col-span-2 block text-gray-500 font-bold col-start-auto cursor-move"
       >
         {itemReducer.items[index].title}
       </div>
 
       <div
-        className="cursor-move"
+        className="cursor-move col-span-2"
         onDragStart={(e) => (dragItem.current = index)}
         onDragEnter={(e) => (dragOverItem.current = index)}
         onDragEnd={handleSort}
@@ -87,7 +79,7 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
       </div>
 
       <input
-        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="number"
         value={itemReducer.items[index].use}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -101,20 +93,28 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         }
       />
 
-      <input
-        className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        type="number"
-        value={itemReducer.items[index].receive}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          dispatch(
-            updateState({
-              index: index,
-              property: "receive",
-              value: parseInt(e.target.value),
-            })
-          )
-        }
-      />
+      <div className="flex items-center col-span-2">
+        <input
+          className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          type="number"
+          value={itemReducer.items[index].receive}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch(
+              updateState({
+                index: index,
+                property: "receive",
+                value: parseInt(e.target.value),
+              })
+            )
+          }
+        />
+        <p
+          onClick={() => dispatch(RemoveData({ index: index }))}
+          className="cursor-pointer"
+        >
+          x
+        </p>
+      </div>
     </div>
   );
 };
