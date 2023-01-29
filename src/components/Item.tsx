@@ -1,8 +1,7 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import {
   itemSelector,
-  RemoveData,
   updateState,
 } from "../store/slices/itemSlice";
 import { useAppDispatch } from "../store/store";
@@ -21,7 +20,11 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
   return (
     <div className="grid grid-cols-12 items-center">
       <input
-        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        onDragStart={(e) => (dragItem.current = index)}
+        onDragEnter={(e) => (dragOverItem.current = index)}
+        onDragEnd={handleSort}
+        onDragOver={(e) => e.preventDefault()}
+        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg"
         type="number"
         value={itemReducer.items[index].available}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -36,7 +39,11 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
       />
 
       <input
-        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        onDragStart={(e) => (dragItem.current = index)}
+        onDragEnter={(e) => (dragOverItem.current = index)}
+        onDragEnd={handleSort}
+        onDragOver={(e) => e.preventDefault()}
+        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg"
         type="number"
         value={itemReducer.items[index].left}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -56,7 +63,7 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         onDragEnd={handleSort}
         onDragOver={(e) => e.preventDefault()}
         draggable
-        className="sm:text-xs lg:text-lg col-span-2 block text-gray-500 font-bold col-start-auto cursor-move"
+        className="text-[0.5rem] lg:text-lg col-span-2 block text-gray-500 font-bold col-start-auto cursor-move"
       >
         {itemReducer.items[index].title}
       </div>
@@ -72,14 +79,18 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         <img
           width="75px"
           height="75px"
-          className="lg:max-w-[69px] sm:max-w-[50px] mx-2 col-span-auto"
+          className="lg:max-w-[69px] sm:max-w-[50px] max-w-[20px] mx-2 col-span-auto"
           src={itemReducer.items[index].pic}
           alt={itemReducer.items[index].title}
         />
       </div>
 
       <input
-        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        onDragStart={(e) => (dragItem.current = index)}
+        onDragEnter={(e) => (dragOverItem.current = index)}
+        onDragEnd={handleSort}
+        onDragOver={(e) => e.preventDefault()}
+        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg"
         type="number"
         value={itemReducer.items[index].use}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -93,28 +104,24 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         }
       />
 
-      <div className="flex items-center col-span-2">
-        <input
-          className="sm:w-28 lg:w-auto shadow appearance-none border rounded py-2 m-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="number"
-          value={itemReducer.items[index].receive}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            dispatch(
-              updateState({
-                index: index,
-                property: "receive",
-                value: parseInt(e.target.value),
-              })
-            )
-          }
-        />
-        <p
-          onClick={() => dispatch(RemoveData({ index: index }))}
-          className="cursor-pointer"
-        >
-          x
-        </p>
-      </div>
+      <input
+        onDragStart={(e) => (dragItem.current = index)}
+        onDragEnter={(e) => (dragOverItem.current = index)}
+        onDragEnd={handleSort}
+        onDragOver={(e) => e.preventDefault()}
+        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg"
+        type="number"
+        value={itemReducer.items[index].receive}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          dispatch(
+            updateState({
+              index: index,
+              property: "receive",
+              value: parseInt(e.target.value),
+            })
+          )
+        }
+      />
     </div>
   );
 };
