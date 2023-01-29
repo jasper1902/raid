@@ -113,11 +113,7 @@ function App() {
                 {item.title}
               </p>
             )}
-            <div
-              className={`dropdown-menu ${
-                item.dropdown ? "" : "hidden"
-              } bg-white`}
-            >
+            <div className={`dropdown-menu ${item.dropdown ? "" : "hidden"}`}>
               <Item
                 index={index}
                 dragItem={dragItem}
