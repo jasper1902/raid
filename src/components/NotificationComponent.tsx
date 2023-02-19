@@ -4,42 +4,22 @@ type Props = {};
 
 const NotificationComponent = (props: Props) => {
   const update = () => {
-    const date1 = new Date("2023-2-6");
-    const date2 = new Date();
-    const timeDiff = date2.getTime() - date1.getTime();
-    const diffDays = timeDiff / (1000 * 3600 * 24);
-    if (diffDays < 0) {
-      toast.info("New update", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      toast.info("Mobile resolution support.", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      toast.info("You can now hide columns.", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
+    // const date1 = new Date("2023-2-6");
+    // const date2 = new Date();
+    // const timeDiff = date2.getTime() - date1.getTime();
+    // const diffDays = timeDiff / (1000 * 3600 * 24);
+    // if (diffDays < 0) {
+    //   toast.info("Message", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "dark",
+    //   });
+    // }
   };
   useEffect(() => update(), []);
   return (
