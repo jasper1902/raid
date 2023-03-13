@@ -13,7 +13,7 @@ const Display = (props: Props) => {
   const itemReducer = useSelector(itemSelector);
   const value = itemReducer.total.receive - itemReducer.total.use;
   return (
-    <div className="text-center lg:font-bold lg:text-5xl sm:text-xl text-[0.5rem]">
+    <div className="text-center lg:font-bold lg:text-5xl sm:text-xl text-[0.5rem] dark:text-gray-50">
       <div className="flex justify-around items-center">
         <p>ใช้ไป {itemReducer.total.use.toLocaleString()}</p>
 

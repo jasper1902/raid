@@ -10,7 +10,7 @@ import gunpowder from "../../assets/rust/gunpowder.webp";
 import sulfurOre from "../../assets/rust/sulfur.ore.webp";
 import incendiaryRocket from "../../assets/rust/incendiary.rocket.webp";
 import grenade from "../../assets/rust/grenade.f1.webp";
-
+import mlrs from "../../assets/rust/ammo.rocket.mlrs.webp";
 
 export const data = {
   items: [
@@ -130,6 +130,16 @@ export const data = {
       title: "F1 Grenade",
       pic: grenade,
       multiplier: 30,
+      available: 0,
+      left: 0,
+      dropdown: true,
+    },
+    {
+      use: 0,
+      receive: 0,
+      title: "MLRS Rocket",
+      pic: mlrs,
+      multiplier: 1500,
       available: 0,
       left: 0,
       dropdown: true,

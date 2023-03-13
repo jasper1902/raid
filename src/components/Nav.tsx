@@ -1,3 +1,5 @@
+import Theme from "./Theme";
+
 const Nav = () => {
   return (
     <header>
@@ -21,7 +23,8 @@ const Nav = () => {
           </a>
 
           <div className="flex items-center lg:order-2">
-            <a href="https://github.com/jasper1902/raid">
+            <Theme />
+            <a href="https://github.com/jasper1902/raid" className="ml-4">
               <button className="bg-sky-700 dark:bg-gray-800 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
