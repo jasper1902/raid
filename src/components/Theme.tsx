@@ -1,75 +1,68 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { themeChange } from "theme-change";
+import ThemeList from "./ThemeList";
+
 type Props = {};
 
+const themes = [
+  "light",
+  "dark",
+  "cupcake",
+  "bumblebee",
+  "emerald",
+  "corporate",
+  "synthwave",
+  "retro",
+  "cyberpunk",
+  "valentine",
+  "halloween",
+  "garden",
+  "forest",
+  "aqua",
+  "lofi",
+  "pastel",
+  "fantasy",
+  "wireframe",
+  "black",
+  "luxury",
+  "dracula",
+  "cmyk",
+  "autumn",
+  "business",
+  "acid",
+  "lemonade",
+  "night",
+  "coffee",
+  "winter",
+];
+
 const Theme = (props: Props) => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-
   useEffect(() => {
-    const themeStorage = localStorage.getItem("theme");
-    if (themeStorage === "dark") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    themeChange(false);
+    // 👆 false parameter is required for react project
   }, []);
-
-  useEffect(() => {
-    if (theme === "dark") {
-      console.log("dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      console.log("light");
-    }
-  }, [theme]);
-
-  const handleThemeSwitch = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-    localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
-  };
   return (
-    <button
-      onClick={handleThemeSwitch}
-      className="group p-2 transition-colors duration-200 rounded-full shadow-md bg-blue-200 hover:bg-blue-200 dark:bg-gray-50 dark:hover:bg-gray-200 text-gray-900 focus:outline-none"
-    >
-      {theme == "dark" ? (
+    <div className="dropdown">
+      <label tabIndex={0} className="btn btn-ghost border-gray-200 p-3 m-1">
+        Theme
         <svg
-          x-show="isDark"
-          width="16"
-          height="16"
-          className="fill-current text-gray-700 group-hover:text-gray-500 group-focus:text-gray-700 dark:text-gray-700 dark:group-hover:text-gray-500 dark:group-focus:text-gray-700"
+          width="12px"
+          height="12px"
+          className="ml-1 hidden h-3 w-3 fill-current opacity-60 sm:inline-block"
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke=""
+          viewBox="0 0 2048 2048"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-          />
+          <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
         </svg>
-      ) : (
-        <svg
-          x-show="!isDark"
-          width="16"
-          height="16"
-          className="fill-current text-gray-700 group-hover:text-gray-500 group-focus:text-gray-700 dark:text-gray-700 dark:group-hover:text-gray-500 dark:group-focus:text-gray-700"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke=""
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
-        </svg>
-      )}
-    </button>
+      </label>
+      <div className="dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-96 h-[70vh] w-52 overflow-y-auto shadow-2xl mt-16 overflow-auto scrollbar-thin scrollbar-thumb-zinc-800">
+        <div className="grid grid-cols-1 gap-3 p-3 " tabIndex={0}>
+          {themes.map((theme, index) => (
+            <ThemeList theme={theme} key={index} />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

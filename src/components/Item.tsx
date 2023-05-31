@@ -24,7 +24,8 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         onDragEnter={(e) => (dragOverItem.current = index)}
         onDragEnd={handleSort}
         onDragOver={(e) => e.preventDefault()}
-        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg dark:bg-gray-800 dark:border-gray-700 dark:text-gray-50"
+        className="input input-bordered input-xs sm:input-sm md:input-md col-span-2 lg:py-2 lg:m-2 lg:px-3 m-1 p-1"
+        // className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg"
         type="number"
         value={itemReducer.items[index].available}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -43,7 +44,8 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         onDragEnter={(e) => (dragOverItem.current = index)}
         onDragEnd={handleSort}
         onDragOver={(e) => e.preventDefault()}
-        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg dark:bg-gray-800 dark:border-gray-700 dark:text-gray-50"
+        className="input input-bordered input-xs sm:input-sm md:input-md col-span-2 lg:py-2 lg:m-2 lg:px-3 m-1 p-1"
+        // className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg "
         type="number"
         value={itemReducer.items[index].left}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -63,7 +65,7 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         onDragEnd={handleSort}
         onDragOver={(e) => e.preventDefault()}
         draggable
-        className="text-[0.5rem] lg:text-lg col-span-2 block text-gray-500 font-bold col-start-auto cursor-move dark:text-gray-50"
+        className="text-[0.5rem] lg:text-lg col-span-2 block text-gray-500 font-bold col-start-auto cursor-move "
       >
         {itemReducer.items[index].title}
       </div>
@@ -90,7 +92,8 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         onDragEnter={(e) => (dragOverItem.current = index)}
         onDragEnd={handleSort}
         onDragOver={(e) => e.preventDefault()}
-        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg dark:bg-gray-800 dark:border-gray-700 dark:text-gray-50"
+        className="input input-bordered input-xs sm:input-sm md:input-md col-span-2 lg:py-2 lg:m-2 lg:px-3 m-1 p-1"
+        // className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg "
         type="number"
         value={itemReducer.items[index].use}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -109,7 +112,8 @@ const Item = ({ index, dragItem, dragOverItem, handleSort }: Props) => {
         onDragEnter={(e) => (dragOverItem.current = index)}
         onDragEnd={handleSort}
         onDragOver={(e) => e.preventDefault()}
-        className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg dark:bg-gray-800 dark:border-gray-700 dark:text-gray-50"
+        className="input input-bordered input-xs sm:input-sm md:input-md col-span-2 lg:py-2 lg:m-2 lg:px-3 m-1 p-1"
+        // className="sm:w-28 lg:w-auto col-span-2 shadow appearance-none border rounded lg:py-2 lg:m-2 lg:px-3 m-1 p-1 leading-tight focus:outline-none focus:shadow-outline text-[0.5rem] lg:text-lg "
         type="number"
         value={itemReducer.items[index].receive}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

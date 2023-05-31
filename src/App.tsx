@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Display from "./components/Display";
 import Item from "./components/Item";
@@ -34,6 +34,20 @@ function App() {
     dragOverItem.current = null;
   };
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     dispatch(updateLocalStorage());
     const items = JSON.parse(localStorage.getItem("items")!);
@@ -48,15 +62,19 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen bg-slate-50 dark:bg-gray-700 ">
-        <div className="dark:bg-gray-800 bg-sky-500">
-          <div className="container mx-auto dark:bg-gray-800 bg-sky-500 ">
+      <div className="min-h-screen grid grid-cols-12">
+        {screenWidth > 640 && (
+          <div className="cols-span-1">
             <Nav />
           </div>
-        </div>
+        )}
 
-        <div className="sm:container mx-auto my-3 lg:px-20 px-5 block text-gray-500 font-bold col-start-auto ">
-          <ul className="grid grid-cols-12 items-center w-12/12 text-xs lg:text-sm dark:text-gray-50">
+        <div
+          className={`sm:container mx-auto my-3 lg:px-20 px-5 block text-gray-500 font-bold ${
+            screenWidth > 640 ? "col-span-11" : "col-span-12"
+          }`}
+        >
+          <ul className="grid grid-cols-12 items-center w-12/12 text-xs lg:text-sm ">
             <li className="text-center col-span-2">จำนวนที่มี</li>
             <li className="text-center col-span-2">จำนวนที่เหลือ</li>
             <li className="text-start col-span-2 ml-5">ชื่อ</li>
@@ -84,7 +102,7 @@ function App() {
                 }
               >
                 <svg
-                  className={`fill-current lg:h-6 h-3  lg:w-6 w-3  transform dark:text-gray-50 ${
+                  className={`fill-current lg:h-6 h-3  lg:w-6 w-3  transform  ${
                     item.dropdown && "-rotate-180"
                   }
                 transition duration-150 ease-in-out `}
@@ -102,7 +120,7 @@ function App() {
                   onDragEnd={handleSort}
                   onDragOver={(e) => e.preventDefault()}
                   draggable
-                  className="cursor-pointer dark:text-gray-50"
+                  className="cursor-pointer "
                   onClick={() =>
                     dispatch(
                       updateState({
@@ -127,7 +145,7 @@ function App() {
               </div>
               <p
                 onClick={() => dispatch(RemoveData({ index: index }))}
-                className={`cursor-pointer text-xs lg:text-lg dropdown-menu dark:text-gray-50 ${
+                className={`cursor-pointer text-xs lg:text-lg dropdown-menu  ${
                   item.dropdown ? "" : "hidden"
                 }`}
               >

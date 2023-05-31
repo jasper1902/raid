@@ -13,7 +13,7 @@ const Display = (props: Props) => {
   const itemReducer = useSelector(itemSelector);
   const value = itemReducer.total.receive - itemReducer.total.use;
   return (
-    <div className="text-center lg:font-bold lg:text-5xl sm:text-xl text-[0.5rem] dark:text-gray-50">
+    <div className="text-center lg:font-bold lg:text-5xl sm:text-xl text-[0.5rem]">
       <div className="flex justify-around items-center">
         <p>ใช้ไป {itemReducer.total.use.toLocaleString()}</p>
 
@@ -22,11 +22,11 @@ const Display = (props: Props) => {
             onClick={() => dispatch(RemoveData({ index: -1 }))}
             className={`${
               value > 0
-                ? "bg-green-500 hover:bg-green-700"
+                ? "btn-success"
                 : value == 0
-                ? "bg-yellow-500 hover:bg-yellow-700"
-                : "bg-red-500 hover:bg-red-700"
-            } lg:p-2.5 p-2 rounded-xl transition-colors duration-50 hover:animate-pulse ease-out text-white lg:font-semibold`}
+                ? "btn-warning"
+                : "btn-error"
+            } btn btn-xs sm:btn-sm md:btn-md hover:animate-pulse text-secondary`}
           >
             {value > 0
               ? `คุ้ม ${value.toLocaleString()}`
@@ -42,7 +42,7 @@ const Display = (props: Props) => {
         <div className="flex items-center flex-col">
           <button
             onClick={() => dispatch(setLeftHandler({}))}
-            className={`bg-blue-500 hover:bg-blue-700 lg:p-2.5 p-2 rounded-xl transition-colors duration-50 hover:animate-pulse ease-out text-white lg:font-semibold`}
+            className={`btn btn-info btn-xs sm:btn-sm md:btn-md hover:animate-pulse text-secondary `}
           >
             เซ็ตจำนวนที่เหลือ
           </button>
