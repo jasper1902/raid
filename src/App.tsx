@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Display from "./components/Display";
 import Item from "./components/Item";
-import Nav from "./components/Nav";
+import Sidebar from "./components/Sidebar";
 import {
   itemSelector,
   RemoveData,
@@ -65,7 +65,7 @@ function App() {
       <div className="min-h-screen grid grid-cols-12">
         {screenWidth > 640 && (
           <div className="cols-span-1">
-            <Nav />
+            <Sidebar />
           </div>
         )}
 

@@ -13,7 +13,7 @@ const Display = (props: Props) => {
   const itemReducer = useSelector(itemSelector);
   const value = itemReducer.total.receive - itemReducer.total.use;
   return (
-    <div className="text-center lg:font-bold lg:text-5xl sm:text-xl text-[0.5rem]">
+    <div className="text-secondary text-center lg:font-bold lg:text-5xl sm:text-xl text-[0.5rem] ">
       <div className="flex justify-around items-center">
         <p>ใช้ไป {itemReducer.total.use.toLocaleString()}</p>
 
@@ -26,7 +26,7 @@ const Display = (props: Props) => {
                 : value == 0
                 ? "btn-warning"
                 : "btn-error"
-            } btn btn-xs sm:btn-sm md:btn-md hover:animate-pulse text-secondary`}
+            } btn btn-xs sm:btn-sm md:btn-md hover:animate-pulse `}
           >
             {value > 0
               ? `คุ้ม ${value.toLocaleString()}`
@@ -42,7 +42,7 @@ const Display = (props: Props) => {
         <div className="flex items-center flex-col">
           <button
             onClick={() => dispatch(setLeftHandler({}))}
-            className={`btn btn-info btn-xs sm:btn-sm md:btn-md hover:animate-pulse text-secondary `}
+            className={`btn btn-info btn-xs sm:btn-sm md:btn-md hover:animate-pulse  `}
           >
             เซ็ตจำนวนที่เหลือ
           </button>
