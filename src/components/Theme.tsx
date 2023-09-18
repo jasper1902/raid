@@ -42,7 +42,7 @@ const Theme = (props: Props) => {
     // 👆 false parameter is required for react project
   }, []);
   return (
-    <div className="dropdown">
+    <div className="dropdown lg:dropdown-left dropdown-top">
       <label tabIndex={0} className="btn btn-ghost border-gray-200 p-3 m-1">
         Theme
         <svg
@@ -55,7 +55,7 @@ const Theme = (props: Props) => {
           <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
         </svg>
       </label>
-      <div className="dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-96 h-[70vh] w-52 overflow-y-auto shadow-2xl mt-16 overflow-auto scrollbar-thin scrollbar-thumb-zinc-800">
+      <div className="dropdown-content z-[1] menu bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-96 h-[70vh] w-52 overflow-y-auto shadow-2xl overflow-auto scrollbar-thin scrollbar-thumb-zinc-800">
         <div className="grid grid-cols-1 gap-3 p-3 " tabIndex={0}>
           {themes.map((theme, index) => (
             <ThemeList theme={theme} key={index} />

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Display from "./components/Display";
 import Item from "./components/Item";
-import Sidebar from "./components/Sidebar";
+
 import {
   itemSelector,
   RemoveData,
@@ -13,8 +13,11 @@ import {
 import "react-toastify/dist/ReactToastify.css";
 import { useAppDispatch } from "./store/store";
 import NotificationComponent from "./components/NotificationComponent";
+import Theme from "./components/Theme";
+import { FaGithubSquare } from "react-icons/fa";
 
 function App() {
+  const [menu, setMenu] = useState(false);
   const dispatch = useAppDispatch();
   const itemReducer = useSelector(itemSelector);
 
@@ -62,13 +65,17 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen grid grid-cols-12">
-        {screenWidth > 640 && (
-          <div className="cols-span-1">
-            <Sidebar />
-          </div>
-        )}
+      <div className="fixed lg:right-0 lg:top-0 p-8 bottom-0">
+        <Theme />
+      </div>
 
+      <div className="fixed bottom-0 right-0 p-8 ">
+        <a href="https://github.com/jasper1902/raid">
+          <FaGithubSquare size={30} />
+        </a>
+      </div>
+
+      <div className="min-h-screen grid grid-cols-12">
         <div
           className={`sm:container mx-auto my-3 lg:px-20 px-5 block text-gray-500 font-bold ${
             screenWidth > 640 ? "col-span-11" : "col-span-12"
